@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Python RPG Game</title>
+</head>
+<body class="bg-black text-purple-500">
+    <h1 class="text-3xl text-green-500">Simple Python RPG Game</h1>
+    <div class="border-2 border-purple-500 p-3 my-3">
+        <h3 class="text-xl">Player Information</h3>
+        <p>Name: {{ gameState.player.name }}</p>
+        <p>Level: {{ gameState.player.level }}</p>
+        <p>Exp: {{ gameState.player.exp }}</p>
+        <p>HP: {{ gameState.player.hp }}</p>
+        <p>Min Dmg: {{ gameState.player.min_damage }}</p>
+        <p>Max Dmg: {{ gameState.player.max_damage }}</p>
+    </div>
+
+    <div>
+        <a href="/battle">
+            <button type="button" class="cursor-pointer text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">
+                ⚔️Battle
+            </button>
+        </a>
+        <a href="/inventory">
+            <button type="button" class="cursor-pointer text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">
+                👜Inventory
+            </button>
+        </a>
+
+        <a href="/shop">
+            <button type="button" class="cursor-pointer text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">
+                💰Shop
+            </button>
+        </a>
+    </div>
+
+    <div class="border-2 border-dotted border-purple-500 p-3 my-3">
+        <h3>Debugging: Current State</h3>
+        <p>Zone: {{ gameState.zone }}</p>
+        <p>Enemy: {{ gameState.enemy }}</p>
+        <p>Mode: {{ gameState.mode }}</p>
+    </div>
+
+    {% if gameState.mode == "exploration" %}
+        <div class="border-2 border-dotted border-purple-500 p-3 my-3">
+            <h3>Debugging: Testing Mode - EXPLORATION</h3>
+            <p>Mode: {{ gameState.mode }}</p>
+        </div>
+    {% endif %}
+
+    {% if gameState.mode == "battle" %}
+        <div class="border-2 border-dotted border-purple-500 p-3 my-3">
+            <h3>Debugging: Testing Mode - BATTLE</h3>
+            <p>Mode: {{ gameState.mode }}</p>
+        </div>
+    {% endif %}
+
+    {% if gameState.mode == "inventory" %}
+        <div class="border-2 border-dotted border-purple-500 p-3 my-3">
+            <h3>Debugging: Testing Mode - INVENTORY</h3>
+            <p>Mode: {{ gameState.mode }}</p>
+            <ul>
+                {% for item in gameState.player.inventory %}
+                    <li class="relative group cursor-pointer">{{loop.index}}. {{item.name}}
+                        <span
+                            class="absolute right-0 top-full z-1 mt-1
+                                opacity-0 group-hover:opacity-100
+                                bg-gray-900 text-white text-xs
+                                px-2 py-1 rounded shadow-lg whitespace-nowrap">
+                            {{ item.attack }} Attack Damage <br>
+                            {{ item.type | capitalize }} Type
+                        </span>
+                    </li>
+                
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    
+</body>
+</html>
