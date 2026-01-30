@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% if gameState.state == "shop" %}
+        <div class="border-2 border-dotted border-purple-500 rounded-md  p-3 my-3">
+            <h3>Debugging: Testing State - SHOP</h3>
+            <p>State: {{ gameState.state }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

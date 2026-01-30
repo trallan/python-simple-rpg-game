@@ -3,4 +3,4 @@ class GameState:
         self.player = new_player
         self.enemy = None
         self.zone = "town"
-        self.mode = "exploration"
+        self.state = None

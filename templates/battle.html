@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    {% if gameState.state == "battle" %}
+        <div class="border-2 border-dotted border-purple-500 rounded-md p-3 my-3">
+            <h3 class="text-xl">Select Zone</h3>
+            <ul>
+                <li>
+                    <a href="{{ url_for('state', state='battle', zone='forest') }}">
+                        Forest
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('state', state='battle', zone='dark-forest') }}">
+                        Dark Forest
+                    </a>
+                </li>
+            </ul>
+            
+            
+        </div>
+    {% endif %}
+    {% if gameState.zone == "forest" %}
+        <div class="border-2 border-dotted border-purple-500 rounded-md  p-3 my-3">
+            <a href="{{ url_for('state', state='battle', zone='forest', enemy='troll') }}" class="btn">
+                Troll
+            </a>
+        </div>
+    {% endif %}
+    {% if gameState.enemy %}
+        <div class="border-2 border-dotted border-purple-500 rounded-md  p-3 my-3">
+            <ul>
+                <li>Enemy: {{ gameState.enemy.name }}</li>
+                <li>HP: {{ gameState.enemy.hp }}</li>
+            </ul>  
+        </div>
+    {% endif %}
+{% endblock %}
