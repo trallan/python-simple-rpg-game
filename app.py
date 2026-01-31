@@ -12,6 +12,12 @@ gameState = GameState(player)
 gameState.player.inventory.append(woodenSword)
 gameState.player.inventory.append(ironSword)
 gameState.player.inventory.append(demonSword)
+gameState.player.inventory.append(woodenSword)
+gameState.player.inventory.append(ironSword)
+gameState.player.inventory.append(demonSword)
+gameState.player.inventory.append(woodenSword)
+gameState.player.inventory.append(ironSword)
+gameState.player.inventory.append(demonSword)
 gameState.player.inventory.append(healthPotion)
 gameState.player.inventory.append(manaPotion)
 
@@ -32,6 +38,8 @@ def state(state=None):
 
     if enemy_key:
         enemy = ENEMIES.get(enemy_key)
+    else:
+        enemy = None
 
     gameState.state = state
     gameState.zone = zone
