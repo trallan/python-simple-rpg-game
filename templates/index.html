@@ -23,6 +23,7 @@
         </div>
     </nav>
     <h1 class="text-3xl text-green-500">Simple Python RPG Game</h1>
+    <span>{{ gameState.state }} : {{ gameState.zone }}</span>
     <section>
         <div class="grid grid-cols-3 my-3 gap-2">
             <div class="border-2 border rounded-md border-purple-500 p-3">
@@ -39,7 +40,7 @@
             </div>
             {% if gameState.zone == "forest" %}
                 <div class="border-2 border rounded-md border-purple-500 p-3">
-                    <a href="{{ url_for('state', state='town', zone='forest', enemy='troll') }}" class="btn">
+                    <a href="{{ url_for('state', state='', zone='forest', enemy='troll') }}" class="btn">
                         Troll
                     </a>
                 </div>

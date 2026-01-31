@@ -33,7 +33,7 @@ def state(state=None):
     if state not in VALID_STATES:
         return "404", 404
     
-    zone = request.args.get("zone", "town")
+    zone = request.args.get("zone", "exploration")
     enemy_key = request.args.get("enemy")
 
     if enemy_key:
