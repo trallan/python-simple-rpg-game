@@ -6,12 +6,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Python RPG Game</title>
 </head>
-<body class="bg-black text-purple-500 mx-5">
+<body class="bg-black text-purple-500 mx-5 font-mono">
     <nav class="py-3">
         <div>
-            <a href="/battle">
+            <a href="/exploration">
                 <button type="button" class="cursor-pointer text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-2 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">
-                    ⚔️Battle
+                    ⚔️Explore
                 </button>
             </a>
 
@@ -35,16 +35,6 @@
             <div class="border-2 border rounded-md border-purple-500 p-3">
                 {% include "equipment.html" %}
             </div>
-            <div class="border-2 border rounded-md border-purple-500 p-3">
-                {% include "zone.html" %}
-            </div>
-            {% if gameState.zone == "forest" %}
-                <div class="border-2 border rounded-md border-purple-500 p-3">
-                    <a href="{{ url_for('state', state='', zone='forest', enemy='troll') }}" class="btn">
-                        Troll
-                    </a>
-                </div>
-            {% endif %}
         </div>
 
         {% block content %}{% endblock %}

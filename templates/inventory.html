@@ -6,12 +6,12 @@
         <div class="relative group cursor-pointer m-1">
             {{loop.index}}. {{item.name}}
             <span
-                class="absolute z-1 mt-1
+                class="absolute left-0 top-0 z-1 mt-1
                     opacity-0 group-hover:opacity-100
                     bg-gray-900 text-green-500 text-xs border-2 border-purple-500
                     px-2 py-1 rounded shadow-lg whitespace-nowrap">
                 <!-- name: str, attack=0, defense=0, value=0, weight=0.0 --> 
-                {% if item.type == "weapon" %}
+                {% if item.type != "consumeable" %}
                     {{ item.name | upper }}<br>
                     {{ item.attack }} Attack Damage <br>
                     {{ item.defense | capitalize }} Defense <br>

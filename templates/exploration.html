@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="grid grid-cols-3 gap-2">
+    <div class="border-2 border rounded-md border-purple-500 p-3">
+        {% include "zone.html" %}
+    </div>
+
+    {% if gameState.zone %}
+    <div class="border-2 border rounded-md border-purple-500 p-3">
+        {% if gameState.zone == 'forest' %}
+        <ul>
+            <li>
+                <a href="{{ url_for('state', state='exploration', zone='forest', enemy='troll') }}" class="btn">
+                Troll
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('state', state='exploration', zone='forest', enemy='goblin') }}" class="btn">
+                Goblin
+                </a>
+            </li>
+        </ul>
+        {% endif %}
+        {% if gameState.zone == 'dark-forest' %}
+        <a href="{{ url_for('state', state='exploration', zone='forest', enemy='troll') }}" class="btn">
+            Cave Troll
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -2,10 +2,10 @@
     <div class="flex justify-center">
         <h3>🛡️EQUIPMENT</h3>
     </div>
-    <p>Head: -</p>
-    <p>Armor: -</p>
-    <p>Legs: -</p>
-    <p>Boots: -</p>
-    <p>RightHand: -</p>
-    <p>OffHand: -</p>
+    <p>Head: {{ gameState.player.equipment_head.name if gameState.player.equipment_head else '-' }}</p>
+    <p>Armor: {{ gameState.player.equipment_armor.name if gameState.player.equipment_armor else '-' }}</p>
+    <p>Legs: {{ gameState.player.equipment_legs.name if gameState.player.equipment_legs else '-' }}</p>
+    <p>Boots: {{ gameState.player.equipment_boots.name if gameState.player.equipment_boots else '-' }}</p>
+    <p>RightHand: {{ gameState.player.equipment_rightHand.name if gameState.player.equipment_rightHand else '-' }}</p>
+    <p>OffHand: {{ gameState.player.equipment_offHand.name if gameState.player.equipment_offHand else '-' }}</p>
 </div>
